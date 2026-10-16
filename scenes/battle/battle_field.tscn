@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://cblogoypm5im8"]
+
+[ext_resource type="Script" uid="uid://cca6gwy27jbag" path="res://scripts/battle/battle_field.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://fx16omucljql" path="res://assets/backgrounds/level_1_hell_screen.png" id="2_bg"]
+[ext_resource type="PackedScene" path="res://scenes/base/base.tscn" id="3_base"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="4_hud"]
+[ext_resource type="PackedScene" path="res://scenes/ui/game_over_modal.tscn" id="5_modal"]
+
+[node name="BattleField" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_script")
+
+[node name="BackgroundSprite" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(640, 360)
+texture = ExtResource("2_bg")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+
+[node name="Lane" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="PlayerUnits" type="Node2D" parent="Lane"]
+y_sort_enabled = true
+
+[node name="EnemyUnits" type="Node2D" parent="Lane"]
+y_sort_enabled = true
+
+[node name="Bases" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="PlayerBase" parent="Bases" instance=ExtResource("3_base")]
+position = Vector2(100, 445)
+team = 0
+max_health = 2500
+base_title = "Donjon des Enfers"
+
+[node name="EnemyBase" parent="Bases" instance=ExtResource("3_base")]
+position = Vector2(1180, 445)
+team = 1
+max_health = 2500
+base_title = "Portail Céleste"
+
+[node name="HUD" parent="." instance=ExtResource("4_hud")]
+
+[node name="GameOverModal" parent="." instance=ExtResource("5_modal")]

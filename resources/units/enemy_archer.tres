@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="UnitData" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/unit_data.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/units/huntress/run.png" id="2_walk"]
+[ext_resource type="Texture2D" path="res://assets/sprites/units/huntress/attack1.png" id="3_atk"]
+[ext_resource type="Texture2D" path="res://assets/sprites/units/huntress/death.png" id="4_dth"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"enemy_huntress"
+display_name = "Chasseresse Royale"
+gold_cost = 65
+gold_bounty = 35
+spawn_cooldown = 3.0
+max_health = 80
+armor = 0
+move_speed = 30.0
+attack_damage = 25
+attack_range = 260.0
+attack_cooldown = 1.4
+is_ranged = true
+projectile_speed = 380.0
+texture_walk = ExtResource("2_walk")
+walk_frames = 8
+texture_attack = ExtResource("3_atk")
+attack_frames = 5
+texture_death = ExtResource("4_dth")
+death_frames = 8
+sprite_scale = Vector2(1.45, 1.45)
+sprite_offset_y = -22.0
+unit_color = Color(1, 1, 1, 1)
+size_radius = 20.0

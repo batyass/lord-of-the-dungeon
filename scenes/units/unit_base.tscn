@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/units/unit_base.gd" id="1_script"]
+[ext_resource type="Script" path="res://scripts/components/health_component.gd" id="2_health"]
+[ext_resource type="Script" path="res://scripts/components/combat_component.gd" id="3_combat"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
+size = Vector2(24, 50)
+
+[node name="UnitBase" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -25)
+shape = SubResource("RectangleShape2D_1")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("2_health")
+
+[node name="CombatComponent" type="Node" parent="."]
+script = ExtResource("3_combat")
+
+[node name="SFX_Attack" type="AudioStreamPlayer2D" parent="."]
+max_distance = 2000.0
+
+[node name="SFX_Die" type="AudioStreamPlayer2D" parent="."]
+max_distance = 2000.0

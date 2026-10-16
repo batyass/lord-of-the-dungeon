@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="UnitData" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/unit_data.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/units/king/run.png" id="2_walk"]
+[ext_resource type="Texture2D" path="res://assets/sprites/units/king/attack_1.png" id="3_atk"]
+[ext_resource type="Texture2D" path="res://assets/sprites/units/king/death.png" id="4_dth"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"enemy_king"
+display_name = "Roi Conquérant"
+gold_cost = 220
+gold_bounty = 120
+spawn_cooldown = 8.0
+max_health = 500
+armor = 6
+move_speed = 22.0
+attack_damage = 65
+attack_range = 65.0
+attack_cooldown = 1.6
+is_ranged = false
+projectile_speed = 350.0
+texture_walk = ExtResource("2_walk")
+walk_frames = 8
+texture_attack = ExtResource("3_atk")
+attack_frames = 6
+texture_death = ExtResource("4_dth")
+death_frames = 11
+sprite_scale = Vector2(1.5, 1.5)
+sprite_offset_y = -38.5
+unit_color = Color(1, 1, 1, 1)
+size_radius = 30.0

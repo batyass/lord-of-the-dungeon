@@ -1,0 +1,5 @@
+/addons/
+/.godot/
+/assets/backgrounds/video/
+*.import
+.DS_Store

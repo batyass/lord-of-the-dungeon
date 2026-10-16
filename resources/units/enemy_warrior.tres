@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="UnitData" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/unit_data.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/units/hero_knight/run.png" id="2_walk"]
+[ext_resource type="Texture2D" path="res://assets/sprites/units/hero_knight/attack1.png" id="3_atk"]
+[ext_resource type="Texture2D" path="res://assets/sprites/units/hero_knight/death.png" id="4_dth"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"enemy_knight"
+display_name = "Chevalier Croisé"
+gold_cost = 40
+gold_bounty = 22
+spawn_cooldown = 2.0
+max_health = 130
+armor = 2
+move_speed = 34.0
+attack_damage = 22
+attack_range = 52.0
+attack_cooldown = 1.0
+is_ranged = false
+projectile_speed = 350.0
+texture_walk = ExtResource("2_walk")
+walk_frames = 8
+texture_attack = ExtResource("3_atk")
+attack_frames = 7
+texture_death = ExtResource("4_dth")
+death_frames = 11
+sprite_scale = Vector2(1.35, 1.35)
+sprite_offset_y = -25.0
+unit_color = Color(1, 1, 1, 1)
+size_radius = 22.0

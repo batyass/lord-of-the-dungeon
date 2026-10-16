@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="UnitData" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/unit_data.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/units/fire_worm/walk.png" id="2_walk"]
+[ext_resource type="Texture2D" path="res://assets/sprites/units/fire_worm/attack.png" id="3_atk"]
+[ext_resource type="Texture2D" path="res://assets/sprites/units/fire_worm/death.png" id="4_dth"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"magma_worm"
+display_name = "Ver Magmatique"
+gold_cost = 120
+gold_bounty = 60
+spawn_cooldown = 5.0
+max_health = 400
+armor = 5
+move_speed = 25.0
+attack_damage = 55
+attack_range = 65.0
+attack_cooldown = 1.3
+is_ranged = false
+projectile_speed = 350.0
+texture_walk = ExtResource("2_walk")
+walk_frames = 9
+texture_attack = ExtResource("3_atk")
+attack_frames = 16
+texture_death = ExtResource("4_dth")
+death_frames = 8
+sprite_scale = Vector2(1.45, 1.45)
+sprite_offset_y = -13.0
+unit_color = Color(1, 1, 1, 1)
+size_radius = 28.0
