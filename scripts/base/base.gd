@@ -4,7 +4,7 @@ class_name BaseFortress
 
 @export var team: int = 0
 @export var max_health: int = 2500
-@export var base_title: String = "Donjon des Enfers"
+@export var base_title: String = "Underworld Dungeon"
 @export_group("Hitbox")
 @export var hitbox_size: Vector2 = Vector2(80.0, 140.0):
 	set(value):

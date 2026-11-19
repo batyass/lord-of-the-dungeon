@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("1_script")
 id = &"enemy_king"
-display_name = "Roi Conquérant"
+display_name = "Conqueror King"
 gold_cost = 220
 gold_bounty = 120
 spawn_cooldown = 8.0

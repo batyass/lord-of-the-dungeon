@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("1_script")
 id = &"skeleton"
-display_name = "Guerrier Squelette"
+display_name = "Skeleton Warrior"
 gold_cost = 50
 gold_bounty = 25
 spawn_cooldown = 2.5

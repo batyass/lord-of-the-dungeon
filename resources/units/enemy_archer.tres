@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("1_script")
 id = &"enemy_huntress"
-display_name = "Chasseresse Royale"
+display_name = "Royal Huntress"
 gold_cost = 65
 gold_bounty = 35
 spawn_cooldown = 3.0

@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("1_script")
 id = &"magma_worm"
-display_name = "Ver Magmatique"
+display_name = "Magma Worm"
 gold_cost = 120
 gold_bounty = 60
 spawn_cooldown = 5.0

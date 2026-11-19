@@ -1,45 +1,250 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=12 format=3 uid="uid://dm0y37j8kmvx2"]
 
 [ext_resource type="Script" path="res://scripts/ui/game_over_modal.gd" id="1_script"]
+[ext_resource type="StyleBox" path="res://UI/dungeon_panel.tres" id="2_dungeon_panel"]
+[ext_resource type="StyleBox" path="res://UI/dungeon_card.tres" id="3_dungeon_card"]
+[ext_resource type="FontFile" uid="uid://bi67eh3ngbnui" path="res://fonts/Lora/static/Lora-Bold.ttf" id="4_lora_bold"]
+[ext_resource type="FontFile" uid="uid://syj172invkun" path="res://fonts/Lora/static/Lora-Regular.ttf" id="5_lora_reg"]
+[ext_resource type="FontFile" uid="uid://d2ct76hterdj3" path="res://fonts/Lora/static/Lora-Medium.ttf" id="6_lora_med"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_btn_focus"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_play_normal"]
+content_margin_left = 22.0
+content_margin_top = 10.0
+content_margin_right = 22.0
+content_margin_bottom = 10.0
+bg_color = Color(0.12, 0.14, 0.2, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.95, 0.72, 0.22, 0.85)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0, 0, 0.5)
+shadow_size = 4
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_play_hover"]
+content_margin_left = 22.0
+content_margin_top = 10.0
+content_margin_right = 22.0
+content_margin_bottom = 10.0
+bg_color = Color(0.2, 0.24, 0.35, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.88, 0.38, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(1, 0.8, 0.2, 0.25)
+shadow_size = 8
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_play_pressed"]
+content_margin_left = 22.0
+content_margin_top = 10.0
+content_margin_right = 22.0
+content_margin_bottom = 10.0
+bg_color = Color(0.08, 0.1, 0.14, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.6, 0.18, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_menu_normal"]
+content_margin_left = 22.0
+content_margin_top = 10.0
+content_margin_right = 22.0
+content_margin_bottom = 10.0
+bg_color = Color(0.07, 0.08, 0.12, 0.9)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.38, 0.42, 0.52, 0.6)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0, 0, 0.5)
+shadow_size = 4
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_menu_hover"]
+content_margin_left = 22.0
+content_margin_top = 10.0
+content_margin_right = 22.0
+content_margin_bottom = 10.0
+bg_color = Color(0.14, 0.16, 0.24, 0.95)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.65, 0.72, 0.85, 0.9)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0, 0, 0.6)
+shadow_size = 6
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_menu_pressed"]
+content_margin_left = 22.0
+content_margin_top = 10.0
+content_margin_right = 22.0
+content_margin_bottom = 10.0
+bg_color = Color(0.05, 0.06, 0.09, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.28, 0.32, 0.4, 0.8)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="GameOverModal" type="CanvasLayer"]
+process_mode = 3
 layer = 10
 script = ExtResource("1_script")
 
+[node name="DimBackdrop" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.02, 0.03, 0.05, 0.85)
+
 [node name="Panel" type="PanelContainer" parent="."]
-custom_minimum_size = Vector2(440, 320)
+custom_minimum_size = Vector2(540, 440)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -220.0
-offset_top = -160.0
-offset_right = 220.0
-offset_bottom = 160.0
+offset_left = -270.0
+offset_top = -220.0
+offset_right = 270.0
+offset_bottom = 220.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_dungeon_panel")
 
 [node name="VBox" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/separation = 14
+alignment = 1
+
+[node name="HeaderBox" type="VBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="BadgeLabel" type="Label" parent="Panel/VBox/HeaderBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_lora_bold")
+theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(1, 0.78, 0.25, 0.95)
+text = "BATTLE CONCLUDED"
+horizontal_alignment = 1
+
+[node name="TitleLabel" type="Label" parent="Panel/VBox/HeaderBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_lora_bold")
+theme_override_font_sizes/font_size = 28
+theme_override_colors/font_color = Color(1, 0.82, 0.25, 1)
+theme_override_colors/font_outline_color = Color(0.04, 0.05, 0.08, 1)
+theme_override_constants/outline_size = 6
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.85)
+theme_override_constants/shadow_offset_y = 3
+text = "DUNGEON VICTORY!"
+horizontal_alignment = 1
+
+[node name="SubtitleLabel" type="Label" parent="Panel/VBox/HeaderBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_lora_med")
+theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.92, 0.78, 0.45, 0.9)
+text = "THE SURFACE INVADERS HAVE BEEN CRUSHED"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Panel/VBox"]
+layout_mode = 2
+
+[node name="StatsPanel" type="PanelContainer" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("3_dungeon_card")
+
+[node name="StatsVBox" type="VBoxContainer" parent="Panel/VBox/StatsPanel"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="StatsLabel" type="Label" parent="Panel/VBox/StatsPanel/StatsVBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_lora_med")
+theme_override_font_sizes/font_size = 15
+theme_override_colors/font_color = Color(0.9, 0.92, 0.96, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.75)
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/line_spacing = 6
+text = "BATTLE SUMMARY\n\n• Match Duration: 00:00\n• Minions Summoned: 0\n• Heroes Killed: 0\n• Gold Earned: 0g"
+horizontal_alignment = 1
+
+[node name="ButtonsBox" type="HBoxContainer" parent="Panel/VBox"]
 layout_mode = 2
 theme_override_constants/separation = 16
 alignment = 1
 
-[node name="TitleLabel" type="Label" parent="Panel/VBox"]
+[node name="PlayAgainButton" type="Button" parent="Panel/VBox/ButtonsBox"]
+custom_minimum_size = Vector2(190, 44)
 layout_mode = 2
-theme_override_font_sizes/font_size = 22
-text = "FIN DE PARTIE"
-horizontal_alignment = 1
-
-[node name="StatsLabel" type="Label" parent="Panel/VBox"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 14
-text = "Stats..."
-horizontal_alignment = 1
-
-[node name="RestartButton" type="Button" parent="Panel/VBox"]
-custom_minimum_size = Vector2(180, 45)
-layout_mode = 2
-size_flags_horizontal = 4
+focus_mode = 0
+theme_override_fonts/font = ExtResource("4_lora_bold")
 theme_override_font_sizes/font_size = 15
-text = "REJOUER"
+theme_override_colors/font_color = Color(1, 0.92, 0.65, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.85, 1)
+theme_override_colors/font_pressed_color = Color(0.9, 0.8, 0.5, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_play_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_play_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_play_pressed")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_btn_focus")
+text = "PLAY AGAIN"
+
+[node name="MainMenuButton" type="Button" parent="Panel/VBox/ButtonsBox"]
+custom_minimum_size = Vector2(190, 44)
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("4_lora_bold")
+theme_override_font_sizes/font_size = 15
+theme_override_colors/font_color = Color(0.85, 0.88, 0.94, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.7, 0.74, 0.8, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_menu_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_menu_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_menu_pressed")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_btn_focus")
+text = "MAIN MENU"
+
+[node name="EscHintLabel" type="Label" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_lora_reg")
+theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0.65, 0.68, 0.75, 0.75)
+text = "[ESC] Return to Main Menu"
+horizontal_alignment = 1

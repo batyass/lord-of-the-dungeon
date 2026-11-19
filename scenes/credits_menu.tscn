@@ -1,81 +1,244 @@
-[gd_scene format=3 uid="uid://bo2213gw58u2t"]
+[gd_scene load_steps=13 format=3 uid="uid://bo2213gw58u2t"]
 
-[ext_resource type="Script" path="res://scenes/credits_menu.gd" id="1_7t8qv"]
-[ext_resource type="PackedScene" uid="uid://dwx7knn8q5clv" path="res://scenes/menu_parallax_background.tscn" id="2_ph23n"]
-[ext_resource type="PackedScene" uid="uid://0fkoqk68ht8c" path="res://scenes/ui/menu_button.tscn" id="4_alu7f"]
-[ext_resource type="LabelSettings" uid="uid://bq7rf2ulwh2gg" path="res://UI/regular_text.tres" id="4_l1uy2"]
+[ext_resource type="Script" path="res://scenes/credits_menu.gd" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://dwx7knn8q5clv" path="res://scenes/menu_parallax_background.tscn" id="2_bg"]
+[ext_resource type="StyleBox" path="res://UI/dungeon_panel.tres" id="3_panel"]
+[ext_resource type="LabelSettings" uid="uid://chnsy2dt5a4rw" path="res://UI/title_text.tres" id="4_title"]
+[ext_resource type="StyleBox" path="res://UI/dungeon_card.tres" id="5_card"]
+[ext_resource type="FontFile" uid="uid://bi67eh3ngbnui" path="res://fonts/Lora/static/Lora-Bold.ttf" id="6_lora_bold"]
+[ext_resource type="FontFile" uid="uid://d2ct76hterdj3" path="res://fonts/Lora/static/Lora-Medium.ttf" id="7_lora_med"]
+[ext_resource type="PackedScene" uid="uid://0fkoqk68ht8c" path="res://scenes/ui/menu_button.tscn" id="8_btn"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1woe7"]
-bg_color = Color(1, 1, 1, 0.72549)
-corner_radius_top_left = 32
-corner_radius_top_right = 32
-corner_radius_bottom_right = 32
-corner_radius_bottom_left = 32
+[sub_resource type="LabelSettings" id="LabelSettings_sub"]
+font = ExtResource("7_lora_med")
+font_size = 14
+font_color = Color(0.85, 0.72, 0.5, 0.85)
+outline_size = 3
+outline_color = Color(0.04, 0.05, 0.08, 1)
 
-[node name="credits_menu" type="Control"]
+[sub_resource type="LabelSettings" id="LabelSettings_header"]
+font = ExtResource("6_lora_bold")
+font_size = 15
+font_color = Color(1, 0.8, 0.3, 1)
+outline_size = 4
+outline_color = Color(0.04, 0.05, 0.08, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.8)
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_role"]
+font = ExtResource("7_lora_med")
+font_size = 13
+font_color = Color(0.88, 0.9, 0.95, 0.92)
+outline_size = 2
+outline_color = Color(0.04, 0.05, 0.08, 0.9)
+
+[sub_resource type="LabelSettings" id="LabelSettings_source"]
+font = ExtResource("7_lora_med")
+font_size = 12
+font_color = Color(0.75, 0.78, 0.84, 0.75)
+outline_size = 2
+outline_color = Color(0.04, 0.05, 0.08, 0.8)
+
+[node name="CreditsMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_7t8qv")
+script = ExtResource("1_script")
 
-[node name="ParallaxBackground" parent="." instance=ExtResource("2_ph23n")]
+[node name="ParallaxBackground" parent="." instance=ExtResource("2_bg")]
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -497.0
-offset_top = -602.0
-offset_right = 497.0
-offset_bottom = -37.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_1woe7")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+[node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 18.0
-offset_top = 8.0
-offset_right = -18.0
-offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer"]
-custom_minimum_size = Vector2(0, 1)
+[node name="Panel" type="PanelContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(1000, 600)
 layout_mode = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 5
-text = "Oh boy there is a lot of people to give credit too. 
+theme_override_styles/panel = ExtResource("3_panel")
 
-Lets start off with the obvious, louissi. Even though there was legal trouble between him and maxgames, to me he will always be the owner of age of war. I wanted this game to be as close to the original, while making some QoL changes.
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 14
+alignment = 1
 
-I would also like to thank my friends and family for always supporting me through rough times and giving me unconditional love.
-I used a lot of tutorials on YouTube to put this together. As way of thanking those creators this game is free and open source. Check it out on Github! 
+[node name="TitleBox" type="VBoxContainer" parent="CenterContainer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
 
-Finally I would like to thank you, the player. Thank you for your time and I hope this was a nice nostalgia trip for you. 
+[node name="TitleLabel" type="Label" parent="CenterContainer/Panel/VBoxContainer/TitleBox"]
+layout_mode = 2
+text = "Credits"
+label_settings = ExtResource("4_title")
+horizontal_alignment = 1
 
-- Alex Piotrowski"
-label_settings = ExtResource("4_l1uy2")
+[node name="SubtitleLabel" type="Label" parent="CenterContainer/Panel/VBoxContainer/TitleBox"]
+layout_mode = 2
+text = "HONORING THE CREATORS"
+label_settings = SubResource("LabelSettings_sub")
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="CreditsGrid" type="HBoxContainer" parent="CenterContainer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="LeftColumn" type="VBoxContainer" parent="CenterContainer/Panel/VBoxContainer/CreditsGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 12
+
+[node name="CardGameDesign" type="PanelContainer" parent="CenterContainer/Panel/VBoxContainer/CreditsGrid/LeftColumn"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("5_card")
+
+[node name="VBox" type="VBoxContainer" parent="CenterContainer/Panel/VBoxContainer/CreditsGrid/LeftColumn/CardGameDesign"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Header" type="Label" parent="CenterContainer/Panel/VBoxContainer/CreditsGrid/LeftColumn/CardGameDesign/VBox"]
+layout_mode = 2
+text = "GAME DESIGN & INSPIRATION"
+label_settings = SubResource("LabelSettings_header")
+
+[node name="Role1" type="Label" parent="CenterContainer/Panel/VBoxContainer/CreditsGrid/LeftColumn/CardGameDesign/VBox"]
+layout_mode = 2
+text = "Conceived & programmed by Louissi"
+label_settings = SubResource("LabelSettings_role")
 autowrap_mode = 2
 
-[node name="Spacer" type="Control" parent="Panel/VBoxContainer"]
-custom_minimum_size = Vector2(0, 12)
+[node name="Role2" type="Label" parent="CenterContainer/Panel/VBoxContainer/CreditsGrid/LeftColumn/CardGameDesign/VBox"]
+layout_mode = 2
+text = "Published by Max Games (Age of War, October 2007)"
+label_settings = SubResource("LabelSettings_role")
+autowrap_mode = 2
+
+[node name="CardEngine" type="PanelContainer" parent="CenterContainer/Panel/VBoxContainer/CreditsGrid/LeftColumn"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("5_card")
+
+[node name="VBox" type="VBoxContainer" parent="CenterContainer/Panel/VBoxContainer/CreditsGrid/LeftColumn/CardEngine"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Header" type="Label" parent="CenterContainer/Panel/VBoxContainer/CreditsGrid/LeftColumn/CardEngine/VBox"]
+layout_mode = 2
+text = "ENGINE & DEVELOPMENT"
+label_settings = SubResource("LabelSettings_header")
+
+[node name="Role1" type="Label" parent="CenterContainer/Panel/VBoxContainer/CreditsGrid/LeftColumn/CardEngine/VBox"]
+layout_mode = 2
+text = "Godot Engine 4.3"
+label_settings = SubResource("LabelSettings_role")
+autowrap_mode = 2
+
+[node name="CardAudio" type="PanelContainer" parent="CenterContainer/Panel/VBoxContainer/CreditsGrid/LeftColumn"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("5_card")
+
+[node name="VBox" type="VBoxContainer" parent="CenterContainer/Panel/VBoxContainer/CreditsGrid/LeftColumn/CardAudio"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Header" type="Label" parent="CenterContainer/Panel/VBoxContainer/CreditsGrid/LeftColumn/CardAudio/VBox"]
+layout_mode = 2
+text = "AUDIO & SOUND DESIGN"
+label_settings = SubResource("LabelSettings_header")
+
+[node name="Role1" type="Label" parent="CenterContainer/Panel/VBoxContainer/CreditsGrid/LeftColumn/CardAudio/VBox"]
+layout_mode = 2
+text = "Chequered Ink (itch.io)"
+label_settings = SubResource("LabelSettings_role")
+autowrap_mode = 2
+
+[node name="RightColumn" type="VBoxContainer" parent="CenterContainer/Panel/VBoxContainer/CreditsGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 12
+
+[node name="CardVisualArts" type="PanelContainer" parent="CenterContainer/Panel/VBoxContainer/CreditsGrid/RightColumn"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("5_card")
+
+[node name="VBox" type="VBoxContainer" parent="CenterContainer/Panel/VBoxContainer/CreditsGrid/RightColumn/CardVisualArts"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Header" type="Label" parent="CenterContainer/Panel/VBoxContainer/CreditsGrid/RightColumn/CardVisualArts/VBox"]
+layout_mode = 2
+text = "VISUAL ARTS & ENVIRONMENTS"
+label_settings = SubResource("LabelSettings_header")
+
+[node name="Role1" type="Label" parent="CenterContainer/Panel/VBoxContainer/CreditsGrid/RightColumn/CardVisualArts/VBox"]
+layout_mode = 2
+text = "Sprites by LuizMelo (itch.io)"
+label_settings = SubResource("LabelSettings_role")
+autowrap_mode = 2
+
+[node name="Role2" type="Label" parent="CenterContainer/Panel/VBoxContainer/CreditsGrid/RightColumn/CardVisualArts/VBox"]
+layout_mode = 2
+text = "Background Environments generated via AI (Gemini & ChatGPT)"
+label_settings = SubResource("LabelSettings_role")
+autowrap_mode = 2
+
+[node name="CardSoundtrack" type="PanelContainer" parent="CenterContainer/Panel/VBoxContainer/CreditsGrid/RightColumn"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("5_card")
+
+[node name="VBox" type="VBoxContainer" parent="CenterContainer/Panel/VBoxContainer/CreditsGrid/RightColumn/CardSoundtrack"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Header" type="Label" parent="CenterContainer/Panel/VBoxContainer/CreditsGrid/RightColumn/CardSoundtrack/VBox"]
+layout_mode = 2
+text = "ORIGINAL SOUNDTRACK"
+label_settings = SubResource("LabelSettings_header")
+
+[node name="Track1" type="Label" parent="CenterContainer/Panel/VBoxContainer/CreditsGrid/RightColumn/CardSoundtrack/VBox"]
+layout_mode = 2
+text = "AudioCopper ('Dark' - Level 1 The Underworld)"
+label_settings = SubResource("LabelSettings_role")
+autowrap_mode = 2
+
+[node name="Track2" type="Label" parent="CenterContainer/Panel/VBoxContainer/CreditsGrid/RightColumn/CardSoundtrack/VBox"]
+layout_mode = 2
+text = "ArtMyLife ('Powerful Dramatic Trailer' - Level 2 The Surface)"
+label_settings = SubResource("LabelSettings_role")
+autowrap_mode = 2
+
+[node name="Track3" type="Label" parent="CenterContainer/Panel/VBoxContainer/CreditsGrid/RightColumn/CardSoundtrack/VBox"]
+layout_mode = 2
+text = "TheFealDoProject ('Oedipus at Colonus Part B' - Level 3 The Celestial Realm)"
+label_settings = SubResource("LabelSettings_role")
+autowrap_mode = 2
+
+[node name="TrackSource" type="Label" parent="CenterContainer/Panel/VBoxContainer/CreditsGrid/RightColumn/CardSoundtrack/VBox"]
+layout_mode = 2
+text = "Music tracks licensed via Pixabay.com"
+label_settings = SubResource("LabelSettings_source")
+autowrap_mode = 2
+
+[node name="Spacer" type="Control" parent="CenterContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 
-[node name="BtnReturn" parent="Panel/VBoxContainer" instance=ExtResource("4_alu7f")]
+[node name="ButtonBox" type="VBoxContainer" parent="CenterContainer/Panel/VBoxContainer"]
 layout_mode = 2
-text = "Click here to return to the menu"
-show_hover_pointer = true
-dark = true
+alignment = 1
 
-[connection signal="pressed" from="Panel/VBoxContainer/BtnReturn" to="." method="_on_button_pressed"]
+[node name="BtnBack" parent="CenterContainer/Panel/VBoxContainer/ButtonBox" instance=ExtResource("8_btn")]
+layout_mode = 2
+text = "Back"
+font_size = 22
+
+[connection signal="pressed" from="CenterContainer/Panel/VBoxContainer/ButtonBox/BtnBack" to="." method="_on_back_pressed"]

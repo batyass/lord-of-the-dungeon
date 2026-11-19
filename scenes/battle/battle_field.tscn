@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" path="res://scenes/base/base.tscn" id="3_base"]
 [ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="4_hud"]
 [ext_resource type="PackedScene" path="res://scenes/ui/game_over_modal.tscn" id="5_modal"]
+[ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="6_pause"]
 
 [node name="BattleField" type="Node2D"]
 y_sort_enabled = true
@@ -34,14 +35,16 @@ y_sort_enabled = true
 position = Vector2(100, 445)
 team = 0
 max_health = 2500
-base_title = "Donjon des Enfers"
+base_title = "Underworld Dungeon"
 
 [node name="EnemyBase" parent="Bases" instance=ExtResource("3_base")]
 position = Vector2(1180, 445)
 team = 1
 max_health = 2500
-base_title = "Portail Céleste"
+base_title = "Celestial Portal"
 
 [node name="HUD" parent="." instance=ExtResource("4_hud")]
 
 [node name="GameOverModal" parent="." instance=ExtResource("5_modal")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("6_pause")]

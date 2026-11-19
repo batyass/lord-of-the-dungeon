@@ -23,6 +23,8 @@ func start_battle() -> void:
 	total_gold_earned = 0
 	total_minions_summoned = 0
 	total_enemies_killed = 0
+	if has_node("/root/EconomyManager"):
+		EconomyManager.reset_economy()
 	change_state(GameState.PLAYING)
 	Engine.time_scale = 1.0
 

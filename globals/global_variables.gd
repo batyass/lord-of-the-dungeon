@@ -12,7 +12,7 @@ enum stage {cave, knight, medival, miltary, future}
 var current_stage
 
 enum difficulty {normal, hard, impossible}
-var current_difficulty
+var current_difficulty: difficulty = difficulty.normal
 
 func _ready():
 	load_config()

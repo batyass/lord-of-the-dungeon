@@ -8,6 +8,9 @@ signal unit_spawn_requested(unit_data_res: Resource, team: int)
 signal unit_spawned(unit: Node2D, team: int)
 signal unit_died(unit: Node2D, team: int, gold_bounty: int)
 
+# --- Tactical / Lane Signals ---
+signal lane_changed(lane_index: int)
+
 # --- Combat Signals ---
 signal damage_dealt(target: Node2D, amount: int)
 signal base_damaged(team: int, current_hp: int, max_hp: int)

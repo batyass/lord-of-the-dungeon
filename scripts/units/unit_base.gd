@@ -6,6 +6,11 @@ var team: int = 0 # 0 = Player (moves right), 1 = Enemy (moves left)
 var facing_direction: float = 1.0
 var lane_index: int = 1 # 0 = Upper, 1 = Center, 2 = Lower
 var depth_scale_mult: float = 1.0
+var enemy_health_multiplier: float = 1.0
+var enemy_damage_multiplier: float = 1.0
+var enemy_speed_multiplier: float = 1.0
+var bounty_multiplier: float = 1.0
+var enemy_level_bounty_multiplier: float = 1.0
 
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var combat_component: CombatComponent = $CombatComponent
@@ -67,9 +72,13 @@ func _ready() -> void:
 	_update_depth_sort()
 
 func _apply_unit_data() -> void:
-	health_component.initialize(unit_data.max_health, unit_data.armor)
+	var is_scaled_enemy := team == GameManager.Team.ENEMY
+	var health_mult := enemy_health_multiplier if is_scaled_enemy else 1.0
+	var damage_mult := enemy_damage_multiplier if is_scaled_enemy else 1.0
+	var speed_mult := enemy_speed_multiplier if is_scaled_enemy else 1.0
+	health_component.initialize(roundi(unit_data.max_health * health_mult), unit_data.armor)
 	combat_component.initialize(
-		unit_data.attack_damage,
+		roundi(unit_data.attack_damage * damage_mult),
 		unit_data.attack_range,
 		unit_data.attack_cooldown,
 		unit_data.is_ranged,
@@ -96,7 +105,7 @@ func _physics_process(delta: float) -> void:
 	
 	match current_state:
 		State.WALK:
-			velocity.x = facing_direction * (unit_data.move_speed if unit_data else 60.0)
+			velocity.x = facing_direction * (unit_data.move_speed * enemy_speed_multiplier if unit_data and team == GameManager.Team.ENEMY else (unit_data.move_speed if unit_data else 60.0))
 			move_and_slide()
 			_update_depth_sort()
 		State.IDLE:
@@ -283,7 +292,7 @@ func _on_health_changed(_cur: int, _max: int) -> void:
 
 func _on_died() -> void:
 	_set_state(State.DIE)
-	var bounty = unit_data.gold_bounty if unit_data else 10
+	var bounty: int = roundi((unit_data.gold_bounty if unit_data else 10) * bounty_multiplier * enemy_level_bounty_multiplier) if team == GameManager.Team.ENEMY else (unit_data.gold_bounty if unit_data else 10)
 	Events.unit_died.emit(self, team, bounty)
 	
 	# Credit gold to opposing team

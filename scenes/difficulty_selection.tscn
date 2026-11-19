@@ -1,19 +1,13 @@
-[gd_scene format=3 uid="uid://d0fdab22qwonm"]
+[gd_scene load_steps=7 format=3 uid="uid://d0fdab22qwonm"]
 
 [ext_resource type="Script" path="res://scenes/difficulty_selection.gd" id="1_n0sbg"]
 [ext_resource type="PackedScene" uid="uid://dwx7knn8q5clv" path="res://scenes/menu_parallax_background.tscn" id="2_esw4u"]
-[ext_resource type="LabelSettings" uid="uid://chnsy2dt5a4rw" path="res://UI/title_text.tres" id="3_ct8pr"]
-[ext_resource type="LabelSettings" uid="uid://bq7rf2ulwh2gg" path="res://UI/regular_text.tres" id="4_h3upi"]
-[ext_resource type="PackedScene" uid="uid://0fkoqk68ht8c" path="res://scenes/ui/menu_button.tscn" id="4_qp2ld"]
+[ext_resource type="StyleBox" path="res://UI/dungeon_panel.tres" id="3_panel"]
+[ext_resource type="LabelSettings" uid="uid://chnsy2dt5a4rw" path="res://UI/title_text.tres" id="4_title"]
+[ext_resource type="LabelSettings" uid="uid://bq7rf2ulwh2gg" path="res://UI/regular_text.tres" id="5_sub"]
+[ext_resource type="PackedScene" uid="uid://0fkoqk68ht8c" path="res://scenes/ui/menu_button.tscn" id="6_btn"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x3gsa"]
-bg_color = Color(1, 1, 1, 0.72549)
-corner_radius_top_left = 32
-corner_radius_top_right = 32
-corner_radius_bottom_right = 32
-corner_radius_bottom_left = 32
-
-[node name="difficulty_selection" type="Control"]
+[node name="DifficultySelection" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,22 +18,7 @@ script = ExtResource("1_n0sbg")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("2_esw4u")]
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -469.0
-offset_top = -578.0
-offset_right = 469.0
-offset_bottom = -42.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_x3gsa")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+[node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -47,67 +26,64 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+[node name="Panel" type="PanelContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(500, 520)
 layout_mode = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 5
-theme_override_font_sizes/font_size = 40
-text = "Difficulty:"
-label_settings = ExtResource("3_ct8pr")
+theme_override_styles/panel = ExtResource("3_panel")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="TitleBox" type="VBoxContainer" parent="CenterContainer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="TitleLabel" type="Label" parent="CenterContainer/Panel/VBoxContainer/TitleBox"]
+layout_mode = 2
+text = "Difficulty"
+label_settings = ExtResource("4_title")
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="Panel/VBoxContainer"]
+[node name="SubtitleLabel" type="Label" parent="CenterContainer/Panel/VBoxContainer/TitleBox"]
 layout_mode = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 5
-theme_override_font_sizes/font_size = 20
-text = "Choose a difficulty to start the game:
-"
-label_settings = ExtResource("4_h3upi")
+text = "CHOOSE YOUR CHALLENGE"
+label_settings = ExtResource("5_sub")
 horizontal_alignment = 1
 
-[node name="Spacer" type="Control" parent="Panel/VBoxContainer"]
-custom_minimum_size = Vector2(0, 84.11)
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/Panel/VBoxContainer"]
 layout_mode = 2
 
-[node name="BtnNormal" parent="Panel/VBoxContainer" instance=ExtResource("4_qp2ld")]
+[node name="ButtonBox" type="VBoxContainer" parent="CenterContainer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="BtnNormal" parent="CenterContainer/Panel/VBoxContainer/ButtonBox" instance=ExtResource("6_btn")]
 layout_mode = 2
 text = "Normal"
-show_hover_pointer = null
-dark = true
+font_size = 26
 
-[node name="SpacerBtn1" type="Control" parent="Panel/VBoxContainer"]
-custom_minimum_size = Vector2(0, 19.885)
+[node name="BtnHard" parent="CenterContainer/Panel/VBoxContainer/ButtonBox" instance=ExtResource("6_btn")]
 layout_mode = 2
+text = "Hard"
+font_size = 26
 
-[node name="BtnHard" parent="Panel/VBoxContainer" instance=ExtResource("4_qp2ld")]
-layout_mode = 2
-text = "Harder"
-show_hover_pointer = null
-dark = true
-
-[node name="SpacerBtn2" type="Control" parent="Panel/VBoxContainer"]
-custom_minimum_size = Vector2(0, 19.885)
-layout_mode = 2
-
-[node name="BtnImpossible" parent="Panel/VBoxContainer" instance=ExtResource("4_qp2ld")]
+[node name="BtnImpossible" parent="CenterContainer/Panel/VBoxContainer/ButtonBox" instance=ExtResource("6_btn")]
 layout_mode = 2
 text = "Impossible"
-show_hover_pointer = null
-dark = true
+font_size = 26
 
-[node name="Spacer2" type="Control" parent="Panel/VBoxContainer"]
-custom_minimum_size = Vector2(0, 50)
+[node name="Spacer" type="Control" parent="CenterContainer/Panel/VBoxContainer/ButtonBox"]
+custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
-size_flags_vertical = 3
 
-[node name="BtnReturn" parent="Panel/VBoxContainer" instance=ExtResource("4_qp2ld")]
+[node name="BtnBack" parent="CenterContainer/Panel/VBoxContainer/ButtonBox" instance=ExtResource("6_btn")]
 layout_mode = 2
-text = "Click here to return to the menu"
-show_hover_pointer = null
-dark = true
+text = "Back"
+font_size = 22
 
-[connection signal="pressed" from="Panel/VBoxContainer/BtnNormal" to="." method="_on_normal_pressed"]
-[connection signal="pressed" from="Panel/VBoxContainer/BtnHard" to="." method="_on_hard_pressed"]
-[connection signal="pressed" from="Panel/VBoxContainer/BtnImpossible" to="." method="_on_impossible_pressed"]
-[connection signal="pressed" from="Panel/VBoxContainer/BtnReturn" to="." method="_on_return_pressed"]
+[connection signal="pressed" from="CenterContainer/Panel/VBoxContainer/ButtonBox/BtnNormal" to="." method="_on_normal_pressed"]
+[connection signal="pressed" from="CenterContainer/Panel/VBoxContainer/ButtonBox/BtnHard" to="." method="_on_hard_pressed"]
+[connection signal="pressed" from="CenterContainer/Panel/VBoxContainer/ButtonBox/BtnImpossible" to="." method="_on_impossible_pressed"]
+[connection signal="pressed" from="CenterContainer/Panel/VBoxContainer/ButtonBox/BtnBack" to="." method="_on_back_pressed"]
