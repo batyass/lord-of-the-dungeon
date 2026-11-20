@@ -1,5 +1,18 @@
+# Assets and generated files (not committed to the repo)
+# The squad manages these assets locally; they are too large for the repository.
+
+/assets/
+assets/**/*.png
+assets/**/*.gif
+assets/**/*.mp3
+assets/**/*.wav
+assets/**/*.ttf
+assets/**/*.ase
+assets/**/*.import
+assets/**/*.shader
+
+# Godot runtime, addons, editor
 /addons/
 /.godot/
-/assets/backgrounds/video/
 *.import
 .DS_Store
