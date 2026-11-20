@@ -16,3 +16,26 @@ assets/**/*.shader
 /.godot/
 *.import
 .DS_Store
+
+# Godot generated files (not committed)
+*.gd.uid
+*.tscn.uid
+*.tres.uid
+*.gdshader.uid
+*.import
+*.csproj
+*.unity
+*.sln
+*.suo
+*.vssscc
+.project
+.classpath
+.settings
+*.mdb
+*.pdb
+
+# Visual Studio / JetBrains
+.vscode/
+.idea/
+*.swp
+*~
