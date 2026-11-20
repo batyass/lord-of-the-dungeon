@@ -1,0 +1,176 @@
+[gd_scene load_steps=49 format=3]
+
+[ext_resource type="Script" path="res://units/cave/tank/cave_tank.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://age of war sprites/effects/shadow.png" id="2_shadow"]
+[ext_resource type="Texture2D" path="res://assets/frames/fire_worm/walk/walk0001.png" id="2_walk_walk"]
+[ext_resource type="Texture2D" path="res://assets/frames/fire_worm/walk/walk0002.png" id="3_walk_walk"]
+[ext_resource type="Texture2D" path="res://assets/frames/fire_worm/walk/walk0003.png" id="4_walk_walk"]
+[ext_resource type="Texture2D" path="res://assets/frames/fire_worm/walk/walk0004.png" id="5_walk_walk"]
+[ext_resource type="Texture2D" path="res://assets/frames/fire_worm/walk/walk0005.png" id="6_walk_walk"]
+[ext_resource type="Texture2D" path="res://assets/frames/fire_worm/walk/walk0006.png" id="7_walk_walk"]
+[ext_resource type="Texture2D" path="res://assets/frames/fire_worm/walk/walk0007.png" id="8_walk_walk"]
+[ext_resource type="Texture2D" path="res://assets/frames/fire_worm/walk/walk0008.png" id="9_walk_walk"]
+[ext_resource type="Texture2D" path="res://assets/frames/fire_worm/walk/walk0009.png" id="10_walk_walk"]
+[ext_resource type="Texture2D" path="res://assets/frames/fire_worm/attack/attack0001.png" id="11_attack_atta"]
+[ext_resource type="Texture2D" path="res://assets/frames/fire_worm/attack/attack0002.png" id="12_attack_atta"]
+[ext_resource type="Texture2D" path="res://assets/frames/fire_worm/attack/attack0003.png" id="13_attack_atta"]
+[ext_resource type="Texture2D" path="res://assets/frames/fire_worm/attack/attack0004.png" id="14_attack_atta"]
+[ext_resource type="Texture2D" path="res://assets/frames/fire_worm/attack/attack0005.png" id="15_attack_atta"]
+[ext_resource type="Texture2D" path="res://assets/frames/fire_worm/attack/attack0006.png" id="16_attack_atta"]
+[ext_resource type="Texture2D" path="res://assets/frames/fire_worm/attack/attack0007.png" id="17_attack_atta"]
+[ext_resource type="Texture2D" path="res://assets/frames/fire_worm/attack/attack0008.png" id="18_attack_atta"]
+[ext_resource type="Texture2D" path="res://assets/frames/fire_worm/attack/attack0009.png" id="19_attack_atta"]
+[ext_resource type="Texture2D" path="res://assets/frames/fire_worm/attack/attack0010.png" id="20_attack_atta"]
+[ext_resource type="Texture2D" path="res://assets/frames/fire_worm/attack/attack0011.png" id="21_attack_atta"]
+[ext_resource type="Texture2D" path="res://assets/frames/fire_worm/attack/attack0012.png" id="22_attack_atta"]
+[ext_resource type="Texture2D" path="res://assets/frames/fire_worm/attack/attack0013.png" id="23_attack_atta"]
+[ext_resource type="Texture2D" path="res://assets/frames/fire_worm/attack/attack0014.png" id="24_attack_atta"]
+[ext_resource type="Texture2D" path="res://assets/frames/fire_worm/attack/attack0015.png" id="25_attack_atta"]
+[ext_resource type="Texture2D" path="res://assets/frames/fire_worm/attack/attack0016.png" id="26_attack_atta"]
+[ext_resource type="Texture2D" path="res://assets/frames/fire_worm/die/die0001.png" id="27_die_die0"]
+[ext_resource type="Texture2D" path="res://assets/frames/fire_worm/die/die0002.png" id="28_die_die0"]
+[ext_resource type="Texture2D" path="res://assets/frames/fire_worm/die/die0003.png" id="29_die_die0"]
+[ext_resource type="Texture2D" path="res://assets/frames/fire_worm/die/die0004.png" id="30_die_die0"]
+[ext_resource type="Texture2D" path="res://assets/frames/fire_worm/die/die0005.png" id="31_die_die0"]
+[ext_resource type="Texture2D" path="res://assets/frames/fire_worm/die/die0006.png" id="32_die_die0"]
+[ext_resource type="Texture2D" path="res://assets/frames/fire_worm/die/die0007.png" id="33_die_die0"]
+[ext_resource type="Texture2D" path="res://assets/frames/fire_worm/die/die0008.png" id="34_die_die0"]
+[ext_resource type="Texture2D" path="res://assets/frames/fire_worm/idle/idle0001.png" id="35_idle_idle"]
+[ext_resource type="Texture2D" path="res://assets/frames/fire_worm/idle/idle0002.png" id="36_idle_idle"]
+[ext_resource type="Texture2D" path="res://assets/frames/fire_worm/idle/idle0003.png" id="37_idle_idle"]
+[ext_resource type="Texture2D" path="res://assets/frames/fire_worm/idle/idle0004.png" id="38_idle_idle"]
+[ext_resource type="Texture2D" path="res://assets/frames/fire_worm/idle/idle0005.png" id="39_idle_idle"]
+[ext_resource type="Texture2D" path="res://assets/frames/fire_worm/idle/idle0006.png" id="40_idle_idle"]
+[ext_resource type="Texture2D" path="res://assets/frames/fire_worm/idle/idle0007.png" id="41_idle_idle"]
+[ext_resource type="Texture2D" path="res://assets/frames/fire_worm/idle/idle0008.png" id="42_idle_idle"]
+[ext_resource type="Texture2D" path="res://assets/frames/fire_worm/idle/idle0009.png" id="43_idle_idle"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_unit"]
+animations = [{
+"frames": [
+{"duration": 1.0, "texture": ExtResource("11_attack_atta")},
+{"duration": 1.0, "texture": ExtResource("12_attack_atta")},
+{"duration": 1.0, "texture": ExtResource("13_attack_atta")},
+{"duration": 1.0, "texture": ExtResource("14_attack_atta")},
+{"duration": 1.0, "texture": ExtResource("15_attack_atta")},
+{"duration": 1.0, "texture": ExtResource("16_attack_atta")},
+{"duration": 1.0, "texture": ExtResource("17_attack_atta")},
+{"duration": 1.0, "texture": ExtResource("18_attack_atta")},
+{"duration": 1.0, "texture": ExtResource("19_attack_atta")},
+{"duration": 1.0, "texture": ExtResource("20_attack_atta")},
+{"duration": 1.0, "texture": ExtResource("21_attack_atta")},
+{"duration": 1.0, "texture": ExtResource("22_attack_atta")},
+{"duration": 1.0, "texture": ExtResource("23_attack_atta")},
+{"duration": 1.0, "texture": ExtResource("24_attack_atta")},
+{"duration": 1.0, "texture": ExtResource("25_attack_atta")},
+{"duration": 1.0, "texture": ExtResource("26_attack_atta")},
+],
+"loop": true,
+"name": &"attack",
+"speed": 12.0
+}, {
+"frames": [
+{"duration": 1.0, "texture": ExtResource("27_die_die0")},
+{"duration": 1.0, "texture": ExtResource("28_die_die0")},
+{"duration": 1.0, "texture": ExtResource("29_die_die0")},
+{"duration": 1.0, "texture": ExtResource("30_die_die0")},
+{"duration": 1.0, "texture": ExtResource("31_die_die0")},
+{"duration": 1.0, "texture": ExtResource("32_die_die0")},
+{"duration": 1.0, "texture": ExtResource("33_die_die0")},
+{"duration": 1.0, "texture": ExtResource("34_die_die0")},
+],
+"loop": false,
+"name": &"die",
+"speed": 8.0
+}, {
+"frames": [
+{"duration": 1.0, "texture": ExtResource("35_idle_idle")},
+{"duration": 1.0, "texture": ExtResource("36_idle_idle")},
+{"duration": 1.0, "texture": ExtResource("37_idle_idle")},
+{"duration": 1.0, "texture": ExtResource("38_idle_idle")},
+{"duration": 1.0, "texture": ExtResource("39_idle_idle")},
+{"duration": 1.0, "texture": ExtResource("40_idle_idle")},
+{"duration": 1.0, "texture": ExtResource("41_idle_idle")},
+{"duration": 1.0, "texture": ExtResource("42_idle_idle")},
+{"duration": 1.0, "texture": ExtResource("43_idle_idle")},
+],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}, {
+"frames": [
+{"duration": 1.0, "texture": ExtResource("2_walk_walk")},
+{"duration": 1.0, "texture": ExtResource("3_walk_walk")},
+{"duration": 1.0, "texture": ExtResource("4_walk_walk")},
+{"duration": 1.0, "texture": ExtResource("5_walk_walk")},
+{"duration": 1.0, "texture": ExtResource("6_walk_walk")},
+{"duration": 1.0, "texture": ExtResource("7_walk_walk")},
+{"duration": 1.0, "texture": ExtResource("8_walk_walk")},
+{"duration": 1.0, "texture": ExtResource("9_walk_walk")},
+{"duration": 1.0, "texture": ExtResource("10_walk_walk")},
+],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
+size = Vector2(36, 64)
+
+[node name="fire_worm" type="RigidBody2D"]
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("1_script")
+is_player_owned = true
+
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.4)
+scale = Vector2(1.2, 0.6)
+texture = ExtResource("2_shadow")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -35.0)
+scale = Vector2(2.8, 2.8)
+sprite_frames = SubResource("SpriteFrames_unit")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_1")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, -25)
+target_position = Vector2(55, 0)
+collision_mask = 6
+
+[node name="death_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="sfx" type="Node2D" parent="."]
+[node name="die_sfx" type="AudioStreamPlayer2D" parent="sfx"]
+[node name="hit_sfx" type="AudioStreamPlayer2D" parent="sfx"]
+[node name="shoot_sfx" type="AudioStreamPlayer2D" parent="sfx"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = -80.0
+offset_bottom = -80.0
+
+[node name="health_bar" type="ProgressBar" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -4.0
+offset_right = 25.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+show_percentage = false
+
+[node name="Label" type="Label" parent="."]
+visible = false

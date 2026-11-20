@@ -1,0 +1,20 @@
+[gd_resource type="Theme" format=3]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nbbvf"]
+
+[resource]
+Button/styles/focus = SubResource("StyleBoxEmpty_nbbvf")
+CheckBox/styles/focus = SubResource("StyleBoxEmpty_nbbvf")
+CheckButton/styles/focus = SubResource("StyleBoxEmpty_nbbvf")
+HSlider/styles/focus = SubResource("StyleBoxEmpty_nbbvf")
+ItemList/styles/focus = SubResource("StyleBoxEmpty_nbbvf")
+LineEdit/styles/focus = SubResource("StyleBoxEmpty_nbbvf")
+LinkButton/styles/focus = SubResource("StyleBoxEmpty_nbbvf")
+MenuButton/styles/focus = SubResource("StyleBoxEmpty_nbbvf")
+OptionButton/styles/focus = SubResource("StyleBoxEmpty_nbbvf")
+TabBar/styles/focus = SubResource("StyleBoxEmpty_nbbvf")
+TabContainer/styles/focus = SubResource("StyleBoxEmpty_nbbvf")
+TextEdit/styles/focus = SubResource("StyleBoxEmpty_nbbvf")
+TextureButton/styles/focus = SubResource("StyleBoxEmpty_nbbvf")
+Tree/styles/focus = SubResource("StyleBoxEmpty_nbbvf")
+VSlider/styles/focus = SubResource("StyleBoxEmpty_nbbvf")

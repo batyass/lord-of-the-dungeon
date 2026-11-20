@@ -1,0 +1,229 @@
+[gd_scene load_steps=11 format=3 uid="uid://c6u7x8y9z0a1b"]
+
+[ext_resource type="Script" path="res://scenes/level_selection.gd" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://dwx7knn8q5clv" path="res://scenes/menu_parallax_background.tscn" id="2_bg"]
+[ext_resource type="StyleBox" path="res://UI/dungeon_panel.tres" id="3_panel"]
+[ext_resource type="LabelSettings" uid="uid://chnsy2dt5a4rw" path="res://UI/title_text.tres" id="4_title"]
+[ext_resource type="LabelSettings" uid="uid://bq7rf2ulwh2gg" path="res://UI/regular_text.tres" id="5_sub"]
+[ext_resource type="StyleBox" path="res://UI/dungeon_card.tres" id="6_card"]
+[ext_resource type="Texture2D" uid="uid://fx16omucljql" path="res://assets/backgrounds/level_1_hell_screen.png" id="7_hell"]
+[ext_resource type="Texture2D" uid="uid://e25plq57gxar" path="res://assets/backgrounds/level_2_earth_screen.png" id="8_earth"]
+[ext_resource type="Texture2D" uid="uid://dl5hdeorqrf3l" path="res://assets/backgrounds/level_3_sky_screen.png" id="9_sky"]
+[ext_resource type="PackedScene" uid="uid://0fkoqk68ht8c" path="res://scenes/ui/menu_button.tscn" id="10_btn"]
+
+[node name="LevelSelection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("2_bg")]
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(980, 580)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("3_panel")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="TitleBox" type="VBoxContainer" parent="CenterContainer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="TitleLabel" type="Label" parent="CenterContainer/Panel/VBoxContainer/TitleBox"]
+layout_mode = 2
+text = "Level Selection"
+label_settings = ExtResource("4_title")
+horizontal_alignment = 1
+
+[node name="SubtitleLabel" type="Label" parent="CenterContainer/Panel/VBoxContainer/TitleBox"]
+layout_mode = 2
+text = "SELECT YOUR BATTLEFIELD"
+label_settings = ExtResource("5_sub")
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="LevelCards" type="HBoxContainer" parent="CenterContainer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="CardLevel1" type="PanelContainer" parent="CenterContainer/Panel/VBoxContainer/LevelCards"]
+custom_minimum_size = Vector2(280, 320)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("6_card")
+
+[node name="VBox" type="VBoxContainer" parent="CenterContainer/Panel/VBoxContainer/LevelCards/CardLevel1"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/Panel/VBoxContainer/LevelCards/CardLevel1/VBox"]
+custom_minimum_size = Vector2(0, 140)
+layout_mode = 2
+texture = ExtResource("7_hell")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="LevelBadge" type="Label" parent="CenterContainer/Panel/VBoxContainer/LevelCards/CardLevel1/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.78, 0.25, 1)
+theme_override_colors/font_outline_color = Color(0.04, 0.05, 0.08, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 14
+text = "LEVEL 1"
+horizontal_alignment = 1
+
+[node name="LevelName" type="Label" parent="CenterContainer/Panel/VBoxContainer/LevelCards/CardLevel1/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.96, 0.96, 0.98, 1)
+theme_override_colors/font_outline_color = Color(0.04, 0.05, 0.08, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 18
+text = "The Underworld"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="CenterContainer/Panel/VBoxContainer/LevelCards/CardLevel1/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72, 0.75, 0.82, 0.8)
+theme_override_font_sizes/font_size = 12
+text = "Infernal Army"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="CenterContainer/Panel/VBoxContainer/LevelCards/CardLevel1/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BtnLevel1" parent="CenterContainer/Panel/VBoxContainer/LevelCards/CardLevel1/VBox" instance=ExtResource("10_btn")]
+layout_mode = 2
+text = "SELECT"
+font_size = 20
+
+[node name="CardLevel2" type="PanelContainer" parent="CenterContainer/Panel/VBoxContainer/LevelCards"]
+custom_minimum_size = Vector2(280, 320)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("6_card")
+
+[node name="VBox" type="VBoxContainer" parent="CenterContainer/Panel/VBoxContainer/LevelCards/CardLevel2"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/Panel/VBoxContainer/LevelCards/CardLevel2/VBox"]
+custom_minimum_size = Vector2(0, 140)
+layout_mode = 2
+texture = ExtResource("8_earth")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="LevelBadge" type="Label" parent="CenterContainer/Panel/VBoxContainer/LevelCards/CardLevel2/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.78, 0.25, 1)
+theme_override_colors/font_outline_color = Color(0.04, 0.05, 0.08, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 14
+text = "LEVEL 2"
+horizontal_alignment = 1
+
+[node name="LevelName" type="Label" parent="CenterContainer/Panel/VBoxContainer/LevelCards/CardLevel2/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.96, 0.96, 0.98, 1)
+theme_override_colors/font_outline_color = Color(0.04, 0.05, 0.08, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 18
+text = "The Surface"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="CenterContainer/Panel/VBoxContainer/LevelCards/CardLevel2/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72, 0.75, 0.82, 0.8)
+theme_override_font_sizes/font_size = 12
+text = "BATTLEFIELD"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="CenterContainer/Panel/VBoxContainer/LevelCards/CardLevel2/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BtnLevel2" parent="CenterContainer/Panel/VBoxContainer/LevelCards/CardLevel2/VBox" instance=ExtResource("10_btn")]
+layout_mode = 2
+text = "SELECT"
+font_size = 20
+
+[node name="CardLevel3" type="PanelContainer" parent="CenterContainer/Panel/VBoxContainer/LevelCards"]
+custom_minimum_size = Vector2(280, 320)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("6_card")
+
+[node name="VBox" type="VBoxContainer" parent="CenterContainer/Panel/VBoxContainer/LevelCards/CardLevel3"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/Panel/VBoxContainer/LevelCards/CardLevel3/VBox"]
+custom_minimum_size = Vector2(0, 140)
+layout_mode = 2
+texture = ExtResource("9_sky")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="LevelBadge" type="Label" parent="CenterContainer/Panel/VBoxContainer/LevelCards/CardLevel3/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.78, 0.25, 1)
+theme_override_colors/font_outline_color = Color(0.04, 0.05, 0.08, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 14
+text = "LEVEL 3"
+horizontal_alignment = 1
+
+[node name="LevelName" type="Label" parent="CenterContainer/Panel/VBoxContainer/LevelCards/CardLevel3/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.96, 0.96, 0.98, 1)
+theme_override_colors/font_outline_color = Color(0.04, 0.05, 0.08, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 18
+text = "The Celestial Realm"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="CenterContainer/Panel/VBoxContainer/LevelCards/CardLevel3/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72, 0.75, 0.82, 0.8)
+theme_override_font_sizes/font_size = 12
+text = "Citadel of the Skies"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="CenterContainer/Panel/VBoxContainer/LevelCards/CardLevel3/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BtnLevel3" parent="CenterContainer/Panel/VBoxContainer/LevelCards/CardLevel3/VBox" instance=ExtResource("10_btn")]
+layout_mode = 2
+text = "SELECT"
+font_size = 20
+
+[node name="ButtonBox" type="VBoxContainer" parent="CenterContainer/Panel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="BtnBack" parent="CenterContainer/Panel/VBoxContainer/ButtonBox" instance=ExtResource("10_btn")]
+layout_mode = 2
+text = "Back"
+font_size = 22
+
+[connection signal="pressed" from="CenterContainer/Panel/VBoxContainer/LevelCards/CardLevel1/VBox/BtnLevel1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="CenterContainer/Panel/VBoxContainer/LevelCards/CardLevel2/VBox/BtnLevel2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="CenterContainer/Panel/VBoxContainer/LevelCards/CardLevel3/VBox/BtnLevel3" to="." method="_on_level_3_pressed"]
+[connection signal="pressed" from="CenterContainer/Panel/VBoxContainer/ButtonBox/BtnBack" to="." method="_on_back_pressed"]
